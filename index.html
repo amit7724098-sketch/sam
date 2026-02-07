@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Simran ❤️</title>
+
+<style>
+  body{
+    margin:0; height:100vh; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    font-family:Arial, sans-serif; color:#fff; text-align:center; overflow:hidden;
+  }
+  .box{
+    background:rgba(255,255,255,0.15);
+    padding:25px; border-radius:18px; width:90%; max-width:360px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    animation:fade .8s ease;
+  }
+  h2,h1{margin:15px 0}
+  button{
+    padding:12px 22px; margin:10px; border:none; border-radius:25px;
+    font-size:16px; background:#ff2d55; color:#fff; cursor:pointer;
+  }
+  button:hover{transform:scale(1.1)}
+  .hide{display:none}
+  .shake{animation:shake .4s}
+  img{
+    width:200px; border-radius:16px; margin-top:15px;
+    animation:zoom 1.2s ease;
+  }
+  @keyframes fade{from{opacity:0;transform:scale(.9)}to{opacity:1}}
+  @keyframes zoom{from{opacity:0;transform:scale(0)}to{opacity:1}}
+  @keyframes shake{
+    0%{transform:translateX(0)}
+    25%{transform:translateX(-5px)}
+    50%{transform:translateX(5px)}
+    75%{transform:translateX(-5px)}
+    100%{transform:translateX(0)}
+  }
+  .heart{
+    position:absolute; bottom:-10px; font-size:20px;
+    animation:float 6s linear infinite; opacity:.7;
+  }
+  @keyframes float{to{transform:translateY(-120vh);opacity:0}}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="s1">
+  <h2>Do you know me? 💭</h2>
+  <button onclick="next()">Yes</button>
+  <button onclick="next()">Obviously 😌</button>
+</div>
+
+<div class="box hide" id="s2">
+  <h2>Do you love me? ❤️</h2>
+  <button onclick="yes()">Yes</button>
+  <button id="no" onclick="nope()">No 😄</button>
+</div>
+
+<div class="box hide" id="s3">
+  <h1>I'm going to propose you 💍</h1>
+  <h2>Simran ❤️</h2>
+</div>
+
+<div class="box hide" id="s4">
+  <h1>I LOVE YOU 💖</h1>
+  <h2>SIMMY 😘</h2>
+</div>
+
+<div class="box hide" id="s5">
+  <h2>Amit ❤️ Simran</h2>
+  <img src="https://i.ibb.co/G41Y0vQx/love.jpg" alt="love">
+</div>
+
+<script>
+  const s1=s1||document.getElementById('s1');
+  const s2=document.getElementById('s2');
+  const s3=document.getElementById('s3');
+  const s4=document.getElementById('s4');
+  const s5=document.getElementById('s5');
+
+  function next(){ s1.classList.add('hide'); s2.classList.remove('hide'); }
+  function nope(){
+    const b=document.getElementById('no');
+    b.classList.add('shake'); setTimeout(()=>b.classList.remove('shake'),400);
+  }
+  function yes(){
+    s2.classList.add('hide'); s3.classList.remove('hide');
+    setTimeout(()=>{ s3.classList.add('hide'); s4.classList.remove('hide'); },5000);
+    setTimeout(()=>{ s4.classList.add('hide'); s5.classList.remove('hide'); },8000);
+  }
+  setInterval(()=>{
+    const h=document.createElement('div');
+    h.className='heart'; h.innerHTML='❤️';
+    h.style.left=Math.random()*100+'vw';
+    h.style.fontSize=(14+Math.random()*18)+'px';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  },500);
+</script>
+
+</body>
+</html>
