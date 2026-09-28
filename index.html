@@ -1,105 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Simran ❤️</title>
 
 <style>
-  body{
-    margin:0; height:100vh; display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
-    font-family:Arial, sans-serif; color:#fff; text-align:center; overflow:hidden;
-  }
-  .box{
-    background:rgba(255,255,255,0.15);
-    padding:25px; border-radius:18px; width:90%; max-width:360px;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
-    animation:fade .8s ease;
-  }
-  h2,h1{margin:15px 0}
-  button{
-    padding:12px 22px; margin:10px; border:none; border-radius:25px;
-    font-size:16px; background:#ff2d55; color:#fff; cursor:pointer;
-  }
-  button:hover{transform:scale(1.1)}
-  .hide{display:none}
-  .shake{animation:shake .4s}
-  img{
-    width:200px; border-radius:16px; margin-top:15px;
-    animation:zoom 1.2s ease;
-  }
-  @keyframes fade{from{opacity:0;transform:scale(.9)}to{opacity:1}}
-  @keyframes zoom{from{opacity:0;transform:scale(0)}to{opacity:1}}
-  @keyframes shake{
-    0%{transform:translateX(0)}
-    25%{transform:translateX(-5px)}
-    50%{transform:translateX(5px)}
-    75%{transform:translateX(-5px)}
-    100%{transform:translateX(0)}
-  }
-  .heart{
-    position:absolute; bottom:-10px; font-size:20px;
-    animation:float 6s linear infinite; opacity:.7;
-  }
-  @keyframes float{to{transform:translateY(-120vh);opacity:0}}
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .box {
+        background: rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
+        padding: 28px 20px;
+        border-radius: 20px;
+
+        width: 90%;
+        max-width: 380px;
+
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+
+        animation: fade 0.8s ease;
+        position: relative;
+        z-index: 10;
+    }
+
+    h1 {
+        margin: 15px 0;
+        font-size: 30px;
+    }
+
+    h2 {
+        margin: 15px 0;
+        font-size: 23px;
+    }
+
+    button {
+        padding: 12px 22px;
+        margin: 8px;
+        border: none;
+        border-radius: 30px;
+
+        font-size: 16px;
+        font-weight: bold;
+
+        background: #ff2d55;
+        color: white;
+
+        cursor: pointer;
+
+        transition: 0.25s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background: #ff1744;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    .hide {
+        display: none;
+    }
+
+    img {
+        width: 100%;
+        max-width: 280px;
+        border-radius: 18px;
+        margin-top: 15px;
+
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
+        animation: zoom 1.2s ease;
+    }
+
+    /* Fade animation */
+    @keyframes fade {
+        from {
+            opacity: 0;
+            transform: scale(0.85);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Image animation */
+    @keyframes zoom {
+        from {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* No button shake */
+    .shake {
+        animation: shake 0.4s;
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-6px);
+        }
+
+        50% {
+            transform: translateX(6px);
+        }
+
+        75% {
+            transform: translateX(-6px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: fixed;
+        bottom: -30px;
+
+        font-size: 20px;
+
+        animation: float 6s linear forwards;
+
+        opacity: 0.8;
+
+        pointer-events: none;
+
+        z-index: 1;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.8;
+        }
+
+        100% {
+            transform: translateY(-120vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .small-text {
+        font-size: 14px;
+        opacity: 0.9;
+    }
 </style>
 </head>
 
 <body>
 
+<!-- PAGE 1 -->
 <div class="box" id="s1">
-  <h2>Do you know me? 💭</h2>
-  <button onclick="next()">Yes</button>
-  <button onclick="next()">Obviously 😌</button>
+
+    <h2>Do you know me? 💭</h2>
+
+    <button onclick="nextPage()">
+        Yes ❤️
+    </button>
+
+    <button onclick="nextPage()">
+        Obviously 😌
+    </button>
+
 </div>
 
+
+<!-- PAGE 2 -->
 <div class="box hide" id="s2">
-  <h2>Do you love me? ❤️</h2>
-  <button onclick="yes()">Yes</button>
-  <button id="no" onclick="nope()">No 😄</button>
+
+    <h2>Do you love me? ❤️</h2>
+
+    <button onclick="yesAnswer()">
+        Yes 💖
+    </button>
+
+    <button id="noButton" onclick="noAnswer()">
+        No 😄
+    </button>
+
 </div>
 
+
+<!-- PAGE 3 -->
 <div class="box hide" id="s3">
-  <h1>I'm going to propose you 💍</h1>
-  <h2>Simran ❤️</h2>
+
+    <h1>I'm going to propose you 💍</h1>
+
+    <h2>Simran ❤️</h2>
+
+    <p class="small-text">
+        Wait for it... 🥰
+    </p>
+
 </div>
 
+
+<!-- PAGE 4 -->
 <div class="box hide" id="s4">
-  <h1>I LOVE YOU 💖</h1>
-  <h2>SIMMY 😘</h2>
+
+    <h1>I LOVE YOU 💖</h1>
+
+    <h2>SIMMY 😘</h2>
+
+    <p>
+        You are very special to me ❤️
+    </p>
+
 </div>
 
+
+<!-- PAGE 5 -->
 <div class="box hide" id="s5">
-  <h2>Amit ❤️ Simran</h2>
-  <img src="https://i.ibb.co/G41Y0vQx/love.jpg" alt="love">
+
+    <h2>Amit ❤️ Simran</h2>
+
+    <img
+        src="https://i.ibb.co/G41Y0vQx/love.jpg"
+        alt="Amit and Simran"
+        onerror="this.style.display='none';"
+    >
+
+    <h2>Forever Special ❤️</h2>
+
 </div>
+
 
 <script>
-  const s1=s1||document.getElementById('s1');
-  const s2=document.getElementById('s2');
-  const s3=document.getElementById('s3');
-  const s4=document.getElementById('s4');
-  const s5=document.getElementById('s5');
 
-  function next(){ s1.classList.add('hide'); s2.classList.remove('hide'); }
-  function nope(){
-    const b=document.getElementById('no');
-    b.classList.add('shake'); setTimeout(()=>b.classList.remove('shake'),400);
-  }
-  function yes(){
-    s2.classList.add('hide'); s3.classList.remove('hide');
-    setTimeout(()=>{ s3.classList.add('hide'); s4.classList.remove('hide'); },5000);
-    setTimeout(()=>{ s4.classList.add('hide'); s5.classList.remove('hide'); },8000);
-  }
-  setInterval(()=>{
-    const h=document.createElement('div');
-    h.className='heart'; h.innerHTML='❤️';
-    h.style.left=Math.random()*100+'vw';
-    h.style.fontSize=(14+Math.random()*18)+'px';
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),6000);
-  },500);
+    // Get all pages
+    const s1 = document.getElementById("s1");
+    const s2 = document.getElementById("s2");
+    const s3 = document.getElementById("s3");
+    const s4 = document.getElementById("s4");
+    const s5 = document.getElementById("s5");
+
+    // Page 1 → Page 2
+    function nextPage() {
+
+        s1.classList.add("hide");
+        s2.classList.remove("hide");
+
+    }
+
+
+    // No button
+    function noAnswer() {
+
+        const button = document.getElementById("noButton");
+
+        button.classList.add("shake");
+
+        setTimeout(function() {
+
+            button.classList.remove("shake");
+
+        }, 400);
+
+    }
+
+
+    // Yes button
+    function yesAnswer() {
+
+        // Page 2 → Page 3
+        s2.classList.add("hide");
+        s3.classList.remove("hide");
+
+
+        // Page 3 → Page 4 after 5 seconds
+        setTimeout(function() {
+
+            s3.classList.add("hide");
+            s4.classList.remove("hide");
+
+        }, 5000);
+
+
+        // Page 4 → Page 5 after 8 seconds
+        setTimeout(function() {
+
+            s4.classList.add("hide");
+            s5.classList.remove("hide");
+
+        }, 8000);
+
+    }
+
+
+    // Create floating hearts
+    setInterval(function() {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML = "❤️";
+
+        // Random horizontal position
+        heart.style.left = Math.random() * 100 + "vw";
+
+        // Random size
+        heart.style.fontSize =
+            (14 + Math.random() * 20) + "px";
+
+        // Random animation duration
+        heart.style.animationDuration =
+            (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+
+
+        // Remove heart after animation
+        setTimeout(function() {
+
+            heart.remove();
+
+        }, 8000);
+
+    }, 500);
+
 </script>
 
 </body>
